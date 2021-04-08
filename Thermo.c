@@ -127,5 +127,5 @@ int main(int argc, char *argv[])
 		fclose(temperature);
 	}
 
-	return EXIT_FAILURE;
+	return 0;
 }
