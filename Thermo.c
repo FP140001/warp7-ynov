@@ -9,19 +9,28 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
+		FILE* led0 = NULL;
+		FILE* led1 = NULL;
+		FILE* led2 = NULL;
+		FILE* led3 = NULL;
+		FILE* led4 = NULL;
+		FILE* led5 = NULL;
+		FILE* led7 = NULL;
+
+		FILE* temperature = NULL;
 
  		//fichier pour le lm75
- 		FILE * temperature = fopen("/sys/class/hwmon/hwmon0/temp1_input", "r");
+ 		temperature = fopen("/sys/class/hwmon/hwmon0/temp1_input", "r");
  
 		//fichier pour les leds ; w+ supprime le texte et le remplace par ce qu'on met dans fputs("0 ou 255",ledx);
-		FILE * led0 = fopen("/sys/class/leds/d0/brightness", "w+");
-		FILE * led1 = fopen("/sys/class/leds/d1/brightness", "w+");
-		FILE * led2 = fopen("/sys/class/leds/d2/brightness", "w+");
-		FILE * led3 = fopen("/sys/class/leds/d3/brightness", "w+");
-		FILE * led4 = fopen("/sys/class/leds/d4/brightness", "w+");
-		FILE * led5 = fopen("/sys/class/leds/d5/brightness", "w+");
-		FILE * led6 = fopen("/sys/class/leds/d6/brightness", "w+");
-		FILE * led7 = fopen("/sys/class/leds/d7/brightness", "w+");
+		led0 = fopen("/sys/class/leds/d0/brightness", "w+");
+		led1 = fopen("/sys/class/leds/d1/brightness", "w+");
+		led2 = fopen("/sys/class/leds/d2/brightness", "w+");
+		led3 = fopen("/sys/class/leds/d3/brightness", "w+");
+		led4 = fopen("/sys/class/leds/d4/brightness", "w+");
+		led5 = fopen("/sys/class/leds/d5/brightness", "w+");
+		led6 = fopen("/sys/class/leds/d6/brightness", "w+");
+		led7 = fopen("/sys/class/leds/d7/brightness", "w+");
 
 		int temp = 0;
 		fscanf(temperature, "%d", &temp);
